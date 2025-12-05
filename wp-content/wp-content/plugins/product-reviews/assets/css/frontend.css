@@ -1,0 +1,361 @@
+/**
+ * Styles pour le site public (frontend)
+ * 
+ * @package Product_Reviews
+ */
+
+/* ============================================
+   NOTE SUR LES PRODUITS (Archive)
+   ============================================ */
+
+.pr-product-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.pr-product-rating .pr-stars {
+    display: inline-flex;
+    gap: 2px;
+}
+
+.pr-product-rating .star {
+    font-size: 16px;
+    line-height: 1;
+}
+
+.pr-product-rating .star.filled {
+    color: #f90;
+}
+
+.pr-product-rating .star.empty {
+    color: #ddd;
+}
+
+.pr-rating-count {
+    color: #666;
+    font-size: 13px;
+}
+
+/* ============================================
+   FORMULAIRE D'AVIS
+   ============================================ */
+
+.pr-review-form-wrapper {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    margin: 40px 0;
+    border: 1px solid #e0e0e0;
+}
+
+.pr-review-form-wrapper h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.pr-review-form .form-group {
+    margin-bottom: 20px;
+}
+
+.pr-review-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.pr-review-form input[type="text"],
+.pr-review-form input[type="email"],
+.pr-review-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 15px;
+    transition: border-color 0.3s;
+}
+
+.pr-review-form input:focus,
+.pr-review-form textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.pr-review-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ============================================
+   SYSTÈME DE NOTATION PAR ÉTOILES
+   ============================================ */
+
+.pr-star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 5px;
+    font-size: 32px;
+}
+
+/* Cacher les radio buttons */
+.pr-star-rating input[type="radio"] {
+    display: none;
+}
+
+/* Style des étoiles */
+.pr-star-rating label {
+    cursor: pointer;
+    color: #ddd;
+    transition: color 0.2s;
+    margin-bottom: 0;
+}
+
+/* Survol : colorer l'étoile et toutes celles à droite */
+.pr-star-rating label:hover,
+.pr-star-rating label:hover ~ label {
+    color: #f90;
+}
+
+/* Sélection : colorer l'étoile sélectionnée et toutes celles à droite */
+.pr-star-rating input[type="radio"]:checked ~ label {
+    color: #f90;
+}
+
+/* ============================================
+   BOUTON SOUMETTRE
+   ============================================ */
+
+.pr-review-form .btn {
+    background-color: #3498db;
+    color: #fff;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.pr-review-form .btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.pr-review-form .btn:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ============================================
+   MESSAGES DE FEEDBACK
+   ============================================ */
+
+.pr-form-message {
+    margin-top: 15px;
+    padding: 12px 15px;
+    border-radius: 5px;
+    display: none;
+}
+
+.pr-form-message.show {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+.pr-form-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.pr-form-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   SHORTCODE : MEILLEURS AVIS
+   ============================================ */
+
+.pr-best-reviews {
+    padding: 30px 0;
+}
+
+.pr-best-reviews h3 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.review-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    transition: all 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.review-rating .pr-stars {
+    display: flex;
+    gap: 2px;
+}
+
+.review-rating .star {
+    font-size: 18px;
+}
+
+.review-author strong {
+    color: #333;
+    font-size: 16px;
+}
+
+.review-content {
+    margin-bottom: 15px;
+}
+
+.review-content p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.review-product {
+    margin-bottom: 10px;
+}
+
+.review-product a {
+    color: #3498db;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.review-product a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+.review-date {
+    color: #999;
+    font-size: 13px;
+}
+
+/* ============================================
+   SHORTCODE : AVIS D'UN PRODUIT
+   ============================================ */
+
+.pr-product-reviews {
+    margin: 30px 0;
+}
+
+.pr-product-reviews h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.review-item {
+    background: #f8f9fa;
+    border-left: 4px solid #3498db;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.review-item .review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.review-item .review-header strong {
+    color: #333;
+    font-size: 15px;
+}
+
+.review-item .review-rating {
+    display: flex;
+    gap: 3px;
+}
+
+.review-item .review-date {
+    color: #999;
+    font-size: 12px;
+}
+
+.review-item .review-text p {
+    margin: 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media screen and (max-width: 768px) {
+    .pr-review-form-wrapper {
+        padding: 20px;
+    }
+    
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .review-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .pr-star-rating {
+        font-size: 28px;
+    }
+}
