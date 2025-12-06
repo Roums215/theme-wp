@@ -116,28 +116,28 @@ msgctxt "Space size name"
 msgid "6"
 msgstr "6"
 
-#: theme.json styles/fossil.json styles/ice.json
+#: styles/fossil.json styles/ice.json theme.json
 msgctxt "Font family name"
 msgid "Inter"
 msgstr "Inter"
 
-#: theme.json styles/fossil.json styles/ice.json styles/maelstrom.json
+#: styles/fossil.json styles/ice.json styles/maelstrom.json theme.json
 msgctxt "Font size name"
 msgid "Medium"
 msgstr "Moyenne"
 
-#: theme.json styles/fossil.json styles/ice.json styles/maelstrom.json
+#: styles/fossil.json styles/ice.json styles/maelstrom.json theme.json
 msgctxt "Font size name"
 msgid "Large"
 msgstr "Grande"
 
-#: theme.json styles/fossil.json styles/ice.json styles/maelstrom.json
+#: styles/fossil.json styles/ice.json styles/maelstrom.json theme.json
 msgctxt "Font size name"
 msgid "Extra Large"
 msgstr "Très grande"
 
-#: theme.json styles/ember.json styles/fossil.json styles/ice.json
-#: styles/maelstrom.json styles/mint.json styles/onyx.json styles/rust.json
+#: styles/ember.json styles/fossil.json styles/ice.json styles/maelstrom.json
+#: styles/mint.json styles/onyx.json styles/rust.json theme.json
 msgctxt "Color name"
 msgid "Contrast"
 msgstr "Contraste"
@@ -147,8 +147,8 @@ msgctxt "Template part name"
 msgid "Post Meta"
 msgstr "Métas de la publication"
 
-#: theme.json styles/ember.json styles/fossil.json styles/ice.json
-#: styles/maelstrom.json styles/mint.json styles/onyx.json styles/rust.json
+#: styles/ember.json styles/fossil.json styles/ice.json styles/maelstrom.json
+#: styles/mint.json styles/onyx.json styles/rust.json theme.json
 msgctxt "Color name"
 msgid "Base"
 msgstr "Base"
@@ -362,12 +362,12 @@ msgctxt "Pattern title"
 msgid "Project details"
 msgstr "Détails du projet"
 
-#: theme.json styles/fossil.json styles/maelstrom.json
+#: styles/fossil.json styles/maelstrom.json theme.json
 msgctxt "Font family name"
 msgid "Cardo"
 msgstr "Cardo"
 
-#: theme.json styles/fossil.json styles/ice.json styles/maelstrom.json
+#: styles/fossil.json styles/ice.json styles/maelstrom.json theme.json
 msgctxt "Font size name"
 msgid "Small"
 msgstr "Petite"
@@ -392,14 +392,14 @@ msgctxt "Heading of the features"
 msgid "A passion for creating spaces"
 msgstr "Une passion pour la création d’espaces"
 
-#: theme.json styles/ember.json styles/fossil.json styles/ice.json
-#: styles/maelstrom.json styles/mint.json
+#: styles/ember.json styles/fossil.json styles/ice.json styles/maelstrom.json
+#: styles/mint.json theme.json
 msgctxt "Font family name"
 msgid "System Serif"
 msgstr "System Serif"
 
-#: theme.json styles/ember.json styles/fossil.json styles/ice.json
-#: styles/maelstrom.json styles/mint.json
+#: styles/ember.json styles/fossil.json styles/ice.json styles/maelstrom.json
+#: styles/mint.json theme.json
 msgctxt "Font family name"
 msgid "System Sans-serif"
 msgstr "System Sans-serif"
@@ -414,8 +414,8 @@ msgctxt "Font family name"
 msgid "Instrument Sans"
 msgstr "Instrument Sans"
 
-#: theme.json styles/ember.json styles/fossil.json styles/ice.json
-#: styles/maelstrom.json styles/mint.json styles/onyx.json
+#: styles/ember.json styles/fossil.json styles/ice.json styles/maelstrom.json
+#: styles/mint.json styles/onyx.json theme.json
 msgctxt "Color name"
 msgid "Base / Two"
 msgstr "Base / Deux"
@@ -569,14 +569,14 @@ msgctxt "Duotone name"
 msgid "Dark gray and cinnamon"
 msgstr "Gris foncé et cannelle"
 
-#: theme.json styles/fossil.json styles/ice.json styles/mint.json
-#: styles/onyx.json
+#: styles/fossil.json styles/ice.json styles/mint.json styles/onyx.json
+#: theme.json
 msgctxt "Color name"
 msgid "Contrast / Three"
 msgstr "Contraste / Trois"
 
-#: theme.json styles/fossil.json styles/ice.json styles/mint.json
-#: styles/onyx.json
+#: styles/fossil.json styles/ice.json styles/mint.json styles/onyx.json
+#: theme.json
 msgctxt "Color name"
 msgid "Contrast / Two"
 msgstr "Contraste / Deux"
@@ -596,27 +596,27 @@ msgctxt "Style variation name"
 msgid "Rust"
 msgstr "Rouille"
 
-#: theme.json styles/onyx.json
+#: styles/onyx.json theme.json
 msgctxt "Color name"
 msgid "Accent / Five"
 msgstr "Accent / Cinq"
 
-#: theme.json styles/onyx.json
+#: styles/onyx.json theme.json
 msgctxt "Color name"
 msgid "Accent / Four"
 msgstr "Accent / Quatre"
 
-#: theme.json styles/onyx.json
+#: styles/onyx.json theme.json
 msgctxt "Color name"
 msgid "Accent / Three"
 msgstr "Accent / Trois"
 
-#: theme.json styles/onyx.json
+#: styles/onyx.json theme.json
 msgctxt "Color name"
 msgid "Accent / Two"
 msgstr "Accent / Deux"
 
-#: theme.json styles/onyx.json
+#: styles/onyx.json theme.json
 msgctxt "Color name"
 msgid "Accent"
 msgstr "Accent"
@@ -1471,7 +1471,7 @@ msgctxt "Gradient name"
 msgid "Vertical hard rust to beige"
 msgstr "Vertical net du rouille au beige"
 
-#: theme.json styles/fossil.json styles/ice.json styles/maelstrom.json
+#: styles/fossil.json styles/ice.json styles/maelstrom.json theme.json
 msgctxt "Font size name"
 msgid "Extra Extra Large"
 msgstr "Très très grande"

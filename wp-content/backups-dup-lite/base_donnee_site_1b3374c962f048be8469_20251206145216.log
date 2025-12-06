@@ -1,0 +1,75 @@
+********************************************************************************
+DUPLICATOR-LITE PACKAGE-LOG: 6 December 2025 14h56
+NOTICE: Do NOT post to public sites or forums 
+********************************************************************************
+VERSION:	1.5.14
+WORDPRESS:	6.8.3
+PHP INFO:	8.3.26 | SAPI: apache2handler
+SERVER:		Apache/2.4.65 (Debian) 
+PHP TIME LIMIT: (0) no time limit imposed 
+PHP MAX MEMORY: 4294967296 (128M default) 
+MEMORY STACK: 12MB
+
+********************************************************************************
+DATABASE:
+********************************************************************************
+BUILD MODE:   PHP(query limit - 100)
+MYSQLTIMEOUT: 5000
+MYSQLDUMP:    Not Supported
+TABLES: total:51 | filtered:0 | create:51
+FILTERED: []
+SQL CREATED: base_donnee_site_1b3374c962f048be8469_20251206145216_database.sql
+SQL FILE SIZE: 2.22MB (2329195)
+SQL FILE TIME: 2025-12-06 14:56:42
+SQL RUNTIME: 0.70 sec.
+
+********************************************************************************
+ARCHIVE (ZIP):
+********************************************************************************
+ARCHIVE DIR:  /var/www/html
+ARCHIVE FILE: base_donnee_site_1b3374c962f048be8469_20251206145216_archive.zip
+FILTERS: *OFF*
+DIRS:
+	not set
+FILES:
+	not set
+EXTS:  not set
+----------------------------------------
+COMPRESSING
+SIZE:	213.79MB
+STATS:	Dirs 2,603 | Files 16,403
+SQL ADDED: base_donnee_site_1b3374c962f048be8469_20251206145216_database.sql
+ZipArchive Object
+(
+    [lastId] => 19005
+    [status] => 0
+    [statusSys] => 0
+    [numFiles] => 19006
+    [filename] => /var/www/html/wp-content/backups-dup-lite/tmp/base_donnee_site_1b3374c962f048be8469_20251206145216_archive.zip
+    [comment] => 
+)
+
+FILE ADDED TO ZIP: 19005
+COMPRESSION RESULT: '1'
+COMPRESSED SIZE: 88.55MB
+ARCHIVE RUNTIME: 213.17 sec.
+MEMORY STACK: 16.17MB
+building installer
+TEST DE COHÉRENCE D’ARCHIVE : RÉUSSITE
+
+********************************************************************************
+INTEGRITY CHECKS:
+********************************************************************************
+SQL FILE: 2.22MB
+INSTALLER FILE: 73.49KB
+ARCHIVE FILE: 90.64MB 
+COMPTE ATTENDU DE FICHIERS/RÉPERTOIRES : 19,006
+COMPTE ACTUEL DE FICHIERS/RÉPERTOIRES : 19,005
+TEST DE COHÉRENCE D’ARCHIVE : Bon
+
+********************************************************************************
+RECORD ID:[2]
+TOTAL PROCESS RUNTIME: 235.20 sec.
+PEAK PHP MEMORY USED: 20.17MB
+DONE PROCESSING => base_donnee_site 6 December 2025 15h00
+
