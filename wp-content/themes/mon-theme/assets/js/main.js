@@ -24,6 +24,24 @@
             }
         });
 
-    });
+        // Mobile Menu Toggle
+        const mobileMenuBtn = $('#mobile-menu-toggle');
+        const mobileMenu = $('#mobile-menu');
 
-})(jQuery);
+        mobileMenuBtn.on('click', function () {
+            mobileMenu.toggleClass('hidden');
+            // Optional: Animate fade in/out
+            if (!mobileMenu.hasClass('hidden')) {
+                mobileMenu.hide().fadeIn(200);
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        $(document).on('click', function (e) {
+            if (!mobileMenuBtn.is(e.target) && mobileMenuBtn.has(e.target).length === 0 &&
+                !mobileMenu.is(e.target) && mobileMenu.has(e.target).length === 0) {
+                mobileMenu.addClass('hidden');
+            }
+        });
+
+    })(jQuery);

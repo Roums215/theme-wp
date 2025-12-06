@@ -1,13 +1,6 @@
 <?php
 /**
- * SINGLE.PHP - Template pour un article unique
- * 
- * TEMPLATE HIERARCHY (ordre de recherche) :
- * 1. single-{post-type}-{slug}.php
- * 2. single-{post-type}.php
- * 3. single.php  ← CE FICHIER
- * 4. singular.php
- * 5. index.php
+ * SINGLE.PHP - Article unique
  * 
  * @package MonECommerceTheme
  */
@@ -15,7 +8,7 @@
 get_header();
 ?>
 
-<main id="main" class="site-main">
+<div class="bg-white py-12">
     
     <?php
     while ( have_posts() ) :
@@ -24,64 +17,67 @@ get_header();
 
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             
-            <header class="entry-header">
-                <h1 class="entry-title"><?php the_title(); ?></h1>
+            <!-- Header Article -->
+            <header class="container mx-auto px-4 max-w-4xl text-center mb-12">
+                <div class="text-sm text-secondary font-bold mb-4 uppercase tracking-wider">
+                    <?php the_category( ', ' ); ?>
+                </div>
                 
-                <div class="entry-meta">
-                    <span>Publié le <?php echo get_the_date(); ?></span>
-                    <span>par <?php the_author(); ?></span>
+                <h1 class="text-4xl md:text-5xl font-display font-bold text-primary mb-6 leading-tight">
+                    <?php the_title(); ?>
+                </h1>
+                
+                <div class="flex items-center justify-center gap-4 text-gray-500 text-sm">
+                    <span class="flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <?php echo get_the_date(); ?>
+                    </span>
+                    <span class="flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <?php the_author(); ?>
+                    </span>
                 </div>
             </header>
 
-            <?php 
-            // HOOK PERSONNALISÉ : permet d'ajouter du contenu ici
-            do_action( 'mon_theme_article_start' ); 
-            ?>
-
-            <?php 
-            // Image à la une
-            if ( has_post_thumbnail() ) : 
-                ?>
-                <div class="entry-thumbnail">
-                    <?php the_post_thumbnail( 'large' ); ?>
+            <!-- Image à la une -->
+            <?php if ( has_post_thumbnail() ) : ?>
+                <div class="container mx-auto px-4 max-w-5xl mb-12">
+                    <div class="rounded-2xl overflow-hidden shadow-lg">
+                        <?php the_post_thumbnail( 'full', array( 'class' => 'w-full h-auto' ) ); ?>
+                    </div>
                 </div>
             <?php endif; ?>
 
-            <div class="entry-content">
-                <?php 
-                // Affiche le contenu COMPLET de l'article
-                the_content(); 
-                ?>
-            </div>
+            <!-- Contenu -->
+            <div class="container mx-auto px-4 max-w-3xl">
+                <div class="prose prose-lg prose-blue mx-auto text-gray-700">
+                    <?php the_content(); ?>
+                </div>
 
-            <footer class="entry-footer">
-                <?php
-                // Catégories
-                the_category( ', ' );
-                
-                // Tags
-                the_tags( '<p>Tags : ', ', ', '</p>' );
-                ?>
-            </footer>
+                <!-- Footer Article -->
+                <footer class="mt-12 pt-8 border-t border-gray-100">
+                    <div class="flex flex-wrap gap-2">
+                        <?php the_tags( '<span class="text-gray-500 mr-2">Tags:</span>', '', '' ); ?>
+                    </div>
+                </footer>
+            </div>
             
         </article>
 
         <?php
-        // Navigation entre articles
-        the_post_navigation( array(
-            'prev_text' => '← %title',
-            'next_text' => '%title →',
-        ));
-        
         // Commentaires
-        if ( comments_open() ) :
-            comments_template();
+        if ( comments_open() || get_comments_number() ) :
+            ?>
+            <div class="container mx-auto px-4 max-w-3xl mt-16 pt-16 border-t border-gray-100">
+                <?php comments_template(); ?>
+            </div>
+            <?php
         endif;
         
     endwhile;
     ?>
     
-</main>
+</div>
 
 <?php
 get_footer();

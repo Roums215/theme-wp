@@ -1,16 +1,6 @@
 <?php
 /**
- * PAGE.PHP - Template pour une page statique
- * 
- * Utilisé pour : À propos, Contact, Mentions légales, etc.
- * 
- * TEMPLATE HIERARCHY :
- * 1. {template personnalisé}.php
- * 2. page-{slug}.php
- * 3. page-{id}.php
- * 4. page.php  ← CE FICHIER
- * 5. singular.php
- * 6. index.php
+ * PAGE.PHP - Page statique
  * 
  * @package MonECommerceTheme
  */
@@ -18,36 +8,59 @@
 get_header();
 ?>
 
-<main id="main" class="site-main">
-    
-    <?php
-    while ( have_posts() ) :
-        the_post();
+<?php
+    // Check if it's a WooCommerce page that needs full width (Cart, Checkout, Account)
+    $is_wc_full_width = class_exists( 'WooCommerce' ) && ( is_cart() || is_checkout() || is_account_page() );
+
+    if ( $is_wc_full_width ) :
+        // Full Width Layout for WooCommerce Pages
+        while ( have_posts() ) :
+            the_post();
+            the_content();
+        endwhile;
+
+    else :
+        // Standard Page Layout
         ?>
-
-        <article id="page-<?php the_ID(); ?>" <?php post_class(); ?>>
+        <div class="bg-brand-dark min-h-screen py-20">
             
-            <header class="entry-header">
-                <h1 class="entry-title"><?php the_title(); ?></h1>
-            </header>
+            <?php
+            while ( have_posts() ) :
+                the_post();
+                ?>
 
-            <?php if ( has_post_thumbnail() ) : ?>
-                <div class="entry-thumbnail">
-                    <?php the_post_thumbnail( 'large' ); ?>
-                </div>
-            <?php endif; ?>
+                <article id="page-<?php the_ID(); ?>" <?php post_class(); ?>>
+                    
+                    <header class="container mx-auto px-4 max-w-4xl text-center mb-16">
+                        <h1 class="text-4xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
+                            <?php the_title(); ?>
+                        </h1>
+                    </header>
 
-            <div class="entry-content">
-                <?php the_content(); ?>
-            </div>
+                    <?php if ( has_post_thumbnail() ) : ?>
+                        <div class="container mx-auto px-4 max-w-6xl mb-16">
+                            <div class="rounded-3xl overflow-hidden shadow-2xl border border-brand-border">
+                                <?php the_post_thumbnail( 'full', array( 'class' => 'w-full h-auto' ) ); ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+
+                    <div class="container mx-auto px-4 max-w-3xl">
+                        <div class="prose prose-lg prose-invert mx-auto text-gray-300">
+                            <?php the_content(); ?>
+                        </div>
+                    </div>
+                    
+                </article>
+
+                <?php
+            endwhile;
+            ?>
             
-        </article>
-
+        </div>
         <?php
-    endwhile;
+    endif;
     ?>
-    
-</main>
 
 <?php
 get_footer();
