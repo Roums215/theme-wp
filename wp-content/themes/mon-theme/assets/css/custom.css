@@ -1,0 +1,165 @@
+/* Custom CSS for Mon Theme */
+
+html,
+body {
+    background-color: #0B0F19 !important;
+    /* brand-dark */
+    margin: 0;
+    padding: 0;
+}
+
+/* WooCommerce Overrides */
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product {
+    width: 100%;
+    margin: 0 0 2rem;
+}
+
+@media (min-width: 768px) {
+
+    .woocommerce ul.products li.product,
+    .woocommerce-page ul.products li.product {
+        width: 48%;
+        margin: 0 1% 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .woocommerce ul.products li.product,
+    .woocommerce-page ul.products li.product {
+        width: 30.6%;
+        margin: 0 1.3% 2rem;
+    }
+}
+
+/* Button Overrides */
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
+    background-color: #6366f1;
+    /* brand-primary */
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.2), 0 2px 4px -1px rgba(99, 102, 241, 0.1);
+}
+
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover {
+    background-color: #4f46e5;
+    /* indigo-600 */
+    transform: translateY(-1px);
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3), 0 4px 6px -2px rgba(99, 102, 241, 0.15);
+}
+
+/* Form Fields & Selects */
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row textarea,
+.woocommerce-ordering select,
+.woocommerce-input-wrapper select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: #111827;
+    /* brand-surface */
+    border: 1px solid #1f2937;
+    /* brand-border */
+    color: #f3f4f6;
+    /* gray-100 */
+    border-radius: 0.75rem;
+    outline: none;
+    transition: all 0.2s;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+}
+
+.woocommerce form .form-row input.input-text:focus,
+.woocommerce form .form-row textarea:focus,
+.woocommerce-ordering select:focus {
+    border-color: #6366f1;
+    /* brand-primary */
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+/* Remove default arrow for inputs that aren't selects */
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row textarea {
+    background-image: none;
+}
+
+/* Result Count */
+.woocommerce-result-count {
+    color: #9ca3af;
+    /* gray-400 */
+    margin-bottom: 1rem;
+}
+
+/* Menu Pills */
+/* Menu Hover Animation */
+#site-navigation ul li a {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0;
+    color: #d1d5db;
+    /* gray-300 */
+    transition: color 0.3s ease;
+}
+
+#site-navigation ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #6366f1;
+    /* brand-primary */
+    transition: width 0.3s ease;
+}
+
+#site-navigation ul li a:hover {
+    color: white;
+}
+
+#site-navigation ul li a:hover::after {
+    width: 100%;
+}
+
+#site-navigation ul li.current-menu-item a {
+    color: white;
+    font-weight: 600;
+}
+
+#site-navigation ul li.current-menu-item a::after {
+    width: 100%;
+}
+
+/* Account Action Buttons (Addresses, etc.) */
+.woocommerce-MyAccount-content a.edit,
+.woocommerce-Address-title a {
+    display: inline-block;
+    background-color: #6366f1;
+    /* brand-primary */
+    color: white !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.woocommerce-MyAccount-content a.edit:hover,
+.woocommerce-Address-title a:hover {
+    background-color: #4f46e5;
+    /* indigo-600 */
+    transform: translateY(-1px);
+}
