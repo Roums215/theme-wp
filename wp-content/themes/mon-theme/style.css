@@ -104,6 +104,10 @@ img {
     padding: 40px 0;
 }
 
+.home .site-content {
+    padding-top: 0;
+}
+
 .site-main {
     background: #fff;
     padding: 30px;
@@ -794,12 +798,109 @@ ul.products li.product {
 .woocommerce-checkout textarea,
 .woocommerce-address-fields input[type="text"],
 .woocommerce-address-fields input[type="email"],
-.woocommerce-address-fields input[type="tel"] {
-    background-color: #111827 !important;
-    color: #e5e7eb !important;
+
+/* ============================================
+   EMPTY CART & RECOMMENDATIONS FIXES
+   ============================================ */
+
+/* 1. Force Grid Layout for any product list in cart page */
+.woocommerce-cart ul.products {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 24px !important;
+    margin: 40px 0 !important;
+}
+
+/* 2. Responsive Grid */
+@media (max-width: 1024px) {
+    .woocommerce-cart ul.products {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .woocommerce-cart ul.products {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .woocommerce-cart ul.products {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* 3. Style The Product Cards (Force card look) */
+.woocommerce-cart ul.products li.product {
+    width: 100% !important;
+    margin: 0 !important;
+    float: none !important;
+    background: #111827;
+    /* brand-surface */
     border: 1px solid #1f2937 !important;
-    padding: 12px 16px !important;
-    border-radius: 0.5rem !important;
+    border-radius: 0.75rem !important;
+    overflow: hidden !important;
+    padding-bottom: 20px !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.woocommerce-cart ul.products li.product img {
+    width: 100% !important;
+    height: 250px !important;
+    object-fit: cover !important;
+    border-radius: 0 !important;
+    margin-bottom: 15px !important;
+}
+
+.woocommerce-cart ul.products li.product .woocommerce-loop-product__title {
+    padding: 0 15px !important;
+    color: #fff !important;
+    font-size: 1.1rem !important;
+}
+
+.woocommerce-cart ul.products li.product .price {
+    padding: 0 15px !important;
+    color: #6366f1 !important;
+    font-weight: bold;
+    display: block !important;
+    margin-bottom: 10px !important;
+}
+
+.woocommerce-cart ul.products li.product .button {
+    margin: 0 15px !important;
+    width: auto !important;
+    display: block !important;
+    text-align: center !important;
+    background-color: #1f2937 !important;
+}
+
+.woocommerce-cart ul.products li.product .button:hover {
+    background-color: #6366f1 !important;
+}
+
+/* 4. Style Default "Cart Empty" Message */
+.woocommerce-cart .cart-empty.woocommerce-info {
+    background-color: #111827 !important;
+    color: #fff !important;
+    border: 1px solid #1f2937 !important;
+    border-top: 3px solid #6366f1 !important;
+    padding: 30px !important;
+    text-align: center !important;
+    font-size: 1.2rem !important;
+    margin-bottom: 30px !important;
+}
+
+.woocommerce-cart .return-to-shop .button {
+    background-color: #6366f1 !important;
+    color: white !important;
+    padding: 12px 30px !important;
+    border-radius: 8px !important;
+    font-weight: bold !important;
+}
+
+.woocommerce-cart .return-to-shop {
+    text-align: center !important;
+    margin-bottom: 50px !important;
 }
 
 .woocommerce-checkout input:focus,
