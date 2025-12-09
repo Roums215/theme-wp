@@ -1,40 +1,20 @@
 <?php
 /**
  * Plugin Name: Mon Plugin Témoignages
- * Plugin URI: https://monsite.com
+ * Plugin URI: https://trouvetonclavier.fr
  * Description: Ajoute un Custom Post Type "Témoignages" pour afficher les avis clients
  * Version: 1.0.0
- * Author: Ton Nom
- * Author URI: https://monsite.com
+ * Author: IONITA Iulian, LEDOUX Johan, BONHOURE Quentin
+ * Author URI: https://trouvetonclavier.fr
  * Text Domain: mon-plugin-temoignages
- * 
- * ============================================
- * CE PLUGIN CONTIENT :
- * ============================================
- * 1. Un Custom Post Type (CPT) : "Témoignages"
- * 2. Une taxonomie personnalisée : "Types de témoignages"
- * 3. Un champ personnalisé : "Auteur du témoignage"
- * 4. Un shortcode : [afficher_temoignages]
- * 5. Un hook WooCommerce personnalisé
- * 
- * EMPLACEMENT : /plugins/mon-plugin-temoignages/mon-plugin-temoignages.php
  * 
  * @package MonPluginTemoignages
  */
 
-// Sécurité
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-
-/* ============================================
-   1. CUSTOM POST TYPE : TÉMOIGNAGES
-   ============================================
-   
-   Un CPT crée un nouveau type de contenu séparé
-   des articles et pages classiques
-*/
 function mon_plugin_register_cpt() {
     
     $labels = array(
@@ -67,13 +47,6 @@ function mon_plugin_register_cpt() {
 }
 add_action( 'init', 'mon_plugin_register_cpt' );
 
-
-/* ============================================
-   2. TAXONOMIE : TYPES DE TÉMOIGNAGES
-   ============================================
-   
-   Permet de classer les témoignages par catégorie
-*/
 function mon_plugin_register_taxonomy() {
     
     $labels = array(
@@ -98,15 +71,6 @@ function mon_plugin_register_taxonomy() {
 }
 add_action( 'init', 'mon_plugin_register_taxonomy' );
 
-
-/* ============================================
-   3. CHAMP PERSONNALISÉ : AUTEUR
-   ============================================
-   
-   Ajoute un champ "Auteur du témoignage" dans l'éditeur
-*/
-
-// Ajoute la meta box
 function mon_plugin_add_meta_box() {
     add_meta_box(
         'temoignage_auteur',
@@ -119,7 +83,6 @@ function mon_plugin_add_meta_box() {
 }
 add_action( 'add_meta_boxes', 'mon_plugin_add_meta_box' );
 
-// Affiche le champ
 function mon_plugin_meta_box_html( $post ) {
     wp_nonce_field( 'mon_plugin_save', 'mon_plugin_nonce' );
     $value = get_post_meta( $post->ID, 'auteur_temoignage', true );
@@ -130,7 +93,6 @@ function mon_plugin_meta_box_html( $post ) {
     <?php
 }
 
-// Sauvegarde
 function mon_plugin_save_meta( $post_id ) {
     
     if ( ! isset( $_POST['mon_plugin_nonce'] ) ) return;
@@ -148,13 +110,6 @@ function mon_plugin_save_meta( $post_id ) {
 }
 add_action( 'save_post', 'mon_plugin_save_meta' );
 
-
-/* ============================================
-   4. SHORTCODE : [afficher_temoignages]
-   ============================================
-   
-   Usage : [afficher_temoignages nombre="3"]
-*/
 function mon_plugin_shortcode( $atts ) {
     
     $atts = shortcode_atts( array(
@@ -192,13 +147,6 @@ function mon_plugin_shortcode( $atts ) {
 }
 add_shortcode( 'afficher_temoignages', 'mon_plugin_shortcode' );
 
-
-/* ============================================
-   5. HOOK WOOCOMMERCE
-   ============================================
-   
-   Ajoute un message sur la page boutique
-*/
 function mon_plugin_wc_hook() {
     if ( function_exists( 'is_shop' ) && is_shop() ) {
         $count = wp_count_posts( 'temoignage' )->publish;
@@ -211,11 +159,6 @@ function mon_plugin_wc_hook() {
 }
 add_action( 'woocommerce_before_shop_loop', 'mon_plugin_wc_hook', 5 );
 
-
-/* ============================================
-   6. STYLES DU SHORTCODE
-   ============================================
-*/
 function mon_plugin_styles() {
     ?>
     <style>
@@ -245,11 +188,6 @@ function mon_plugin_styles() {
 }
 add_action( 'wp_head', 'mon_plugin_styles' );
 
-
-/* ============================================
-   7. ACTIVATION / DÉSACTIVATION
-   ============================================
-*/
 function mon_plugin_activate() {
     mon_plugin_register_cpt();
     flush_rewrite_rules();
