@@ -125,17 +125,24 @@ function mon_plugin_shortcode( $atts ) {
     $html = '';
     
     if ( $query->have_posts() ) {
-        $html .= '<div class="shortcode-temoignages">';
+        $html .= '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">';
         
         while ( $query->have_posts() ) {
             $query->the_post();
             $auteur = get_post_meta( get_the_ID(), 'auteur_temoignage', true );
             
-            $html .= '<div class="temoignage-item">';
-            $html .= '<div class="temoignage-content">"' . get_the_content() . '"</div>';
+            // Dark Mode Structure
+            $html .= '<div class="bg-brand-surface border border-brand-border rounded-2xl p-8 hover:border-brand-primary transition-all duration-300 group flex flex-col h-full">';
+            
+            $html .= '<h3 class="text-xl font-bold text-white mb-4 group-hover:text-brand-primary transition-colors"><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>';
+            
+            $html .= '<div class="text-gray-400 mb-6 italic flex-1">"' . wp_trim_words( get_the_content(), 25 ) . '"</div>';
+            
             if ( $auteur ) {
-                $html .= '<div class="temoignage-auteur">— ' . esc_html( $auteur ) . '</div>';
+                $html .= '<div class="text-sm text-brand-primary font-bold mb-4 uppercase tracking-wider">— ' . esc_html( $auteur ) . '</div>';
             }
+            
+            $html .= '<a href="' . get_permalink() . '" class="text-sm font-medium text-white hover:text-brand-primary transition-colors mt-auto flex items-center gap-2">Lire la suite <span class="group-hover:translate-x-1 transition-transform">→</span></a>';
             $html .= '</div>';
         }
         
@@ -151,42 +158,13 @@ function mon_plugin_wc_hook() {
     if ( function_exists( 'is_shop' ) && is_shop() ) {
         $count = wp_count_posts( 'temoignage' )->publish;
         if ( $count > 0 ) {
-            echo '<p style="background:#d4edda; padding:15px; border-radius:5px; margin-bottom:20px;">';
+            echo '<div class="bg-brand-surface border border-brand-border p-4 rounded-xl mb-6 text-white">';
             echo '🌟 Rejoignez nos ' . $count . ' clients satisfaits !';
-            echo '</p>';
+            echo '</div>';
         }
     }
 }
 add_action( 'woocommerce_before_shop_loop', 'mon_plugin_wc_hook', 5 );
-
-function mon_plugin_styles() {
-    ?>
-    <style>
-        .shortcode-temoignages {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-        .temoignage-item {
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #0066cc;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .temoignage-content {
-            font-style: italic;
-            margin-bottom: 10px;
-        }
-        .temoignage-auteur {
-            font-weight: bold;
-            color: #0066cc;
-        }
-    </style>
-    <?php
-}
-add_action( 'wp_head', 'mon_plugin_styles' );
 
 function mon_plugin_activate() {
     mon_plugin_register_cpt();

@@ -615,9 +615,18 @@ ul.products li.product {
     box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
 }
 
-.woocommerce form .form-row label {
-    color: #d1d5db;
-    /* gray-300 */
+/* Comprehensive checkout label fix */
+.woocommerce form .form-row label,
+.woocommerce-checkout label,
+.woocommerce-checkout .woocommerce-billing-fields__field-wrapper label,
+.woocommerce-checkout .woocommerce-shipping-fields__field-wrapper label,
+.woocommerce-checkout .woocommerce-additional-fields__field-wrapper label,
+.woocommerce-checkout .woocommerce-billing-fields h3,
+.woocommerce-checkout .woocommerce-shipping-fields h3,
+.woocommerce-checkout .woocommerce-additional-fields h3,
+.woocommerce-checkout #order_review_heading {
+    color: #ffffff !important;
+    /* white */
     display: block;
     margin-bottom: 8px;
     font-weight: 500;

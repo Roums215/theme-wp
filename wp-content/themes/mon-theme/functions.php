@@ -69,3 +69,27 @@ function mon_theme_widgets_init() {
     ) );
 }
 add_action( 'widgets_init', 'mon_theme_widgets_init' );
+
+/**
+ * 5. Critical CSS Fixes (Force White Labels for Checkout)
+ */
+function mon_theme_critical_css() {
+    ?>
+    <style>
+        /* Force White Labels on Checkout - Critical Overrides */
+        .woocommerce form .form-row label,
+        .woocommerce-checkout label,
+        .woocommerce-checkout .woocommerce-billing-fields__field-wrapper label,
+        .woocommerce-checkout .woocommerce-shipping-fields__field-wrapper label,
+        .woocommerce-checkout .woocommerce-additional-fields__field-wrapper label,
+        .woocommerce-checkout .woocommerce-billing-fields h3,
+        .woocommerce-checkout .woocommerce-shipping-fields h3,
+        .woocommerce-checkout .woocommerce-additional-fields h3,
+        .woocommerce-checkout #order_review_heading {
+            color: #ffffff !important;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5); /* Added contrast */
+        }
+    </style>
+    <?php
+}
+add_action( 'wp_head', 'mon_theme_critical_css', 100 );
