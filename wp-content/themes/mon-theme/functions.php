@@ -13,19 +13,19 @@ if ( ! defined( 'ABSPATH' ) ) {
  * 1. Setup du thème
  */
 function mon_theme_setup() {
-    // Support de WooCommerce
+
     add_theme_support( 'woocommerce' );
     
-    // Support des images à la une
+
     add_theme_support( 'post-thumbnails' );
     
-    // Support du titre de la page
+
     add_theme_support( 'title-tag' );
     
-    // Support du logo personnalisé
+
     add_theme_support( 'custom-logo' );
     
-    // Menus
+
     register_nav_menus( array(
         'primary' => 'Menu Principal',
         'footer'  => 'Menu Pied de page',
@@ -37,19 +37,16 @@ add_action( 'after_setup_theme', 'mon_theme_setup' );
  * 2. Chargement des scripts et styles
  */
 function mon_theme_scripts() {
-    // Style principal (style.css)
+
     wp_enqueue_style( 'mon-theme-style', get_stylesheet_uri(), array(), '1.0.0' );
     
-    // Tailwind (via CDN pour le dev, comme vu dans header.php)
-    // Note: Dans header.php vous avez déjà le script CDN, donc pas besoin de l'ajouter ici si c'est hardcodé.
-    // Mais c'est mieux de gérer ici. Pour l'instant on laisse header.php gérer le CDN.
 }
 add_action( 'wp_enqueue_scripts', 'mon_theme_scripts' );
 
 /**
  * 3. Inclusions
  */
-// Fonctions WooCommerce personnalisées
+
 if ( class_exists( 'WooCommerce' ) ) {
     require get_template_directory() . '/inc/woocommerce-functions.php';
 }
@@ -76,7 +73,6 @@ add_action( 'widgets_init', 'mon_theme_widgets_init' );
 function mon_theme_critical_css() {
     ?>
     <style>
-        /* Force White Labels on Checkout - Critical Overrides */
         .woocommerce form .form-row label,
         .woocommerce-checkout label,
         .woocommerce-checkout .woocommerce-billing-fields__field-wrapper label,
@@ -87,7 +83,7 @@ function mon_theme_critical_css() {
         .woocommerce-checkout .woocommerce-additional-fields h3,
         .woocommerce-checkout #order_review_heading {
             color: #ffffff !important;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.5); /* Added contrast */
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
         }
     </style>
     <?php

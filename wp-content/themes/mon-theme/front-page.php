@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function() {
         steps.forEach((step, i) => {
             if (i === index) {
                 step.classList.remove('hidden');
-                setTimeout(() => step.classList.add('active'), 50); // Fade in
+                setTimeout(() => step.classList.add('active'), 50);
             } else {
                 step.classList.add('hidden');
                 step.classList.remove('active');
@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         updateDots(index);
 
-        // Button visibility
+
         if (index === 0) {
             prevBtn.classList.add('hidden');
         } else {
@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', function() {
             currentStep++;
             showStep(currentStep);
         } else {
-            // Calculate Result
+
             const mission = document.querySelector('input[name="mission"]:checked')?.value || 'gaming';
             const env = document.querySelector('input[name="environment"]:checked')?.value || 'private';
             const space = document.querySelector('input[name="space"]:checked')?.value || 'average';
@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let switchType = 'Brown (Tactile)';
             let series = 'Pro Creator';
 
-            // Logic
+
             if (space === 'tiny') format = 'Compact (60%)';
             if (space === 'massive') format = 'Full Size (100%)';
 
@@ -272,12 +272,12 @@ document.addEventListener('DOMContentLoaded', function() {
             if (mission === 'gaming') series = 'Esports Elite';
             if (mission === 'coding') series = 'Dev Master';
 
-            // Update UI
+
             document.getElementById('result-format').textContent = format;
             document.getElementById('result-switch').textContent = switchType;
             document.getElementById('result-series').textContent = series;
 
-            // Show result
+
             steps[currentStep].classList.add('hidden');
             navSection.classList.add('hidden');
             resultSection.classList.remove('hidden');

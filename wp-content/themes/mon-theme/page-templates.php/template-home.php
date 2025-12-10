@@ -37,7 +37,7 @@ get_header();
         <h2 class="section-title">Nos derniers produits</h2>
         
         <?php 
-        // Shortcode WooCommerce pour afficher les produits récents
+
         echo do_shortcode( '[recent_products limit="4" columns="4"]' ); 
         ?>
     </section>
@@ -48,7 +48,7 @@ get_header();
          TÉMOIGNAGES (notre CPT)
          ============================ -->
     <?php
-    // Requête pour récupérer les témoignages
+
     $temoignages = new WP_Query( array(
         'post_type'      => 'temoignage',
         'posts_per_page' => 3,

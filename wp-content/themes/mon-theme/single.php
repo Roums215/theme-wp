@@ -65,7 +65,7 @@ get_header();
         </article>
 
         <?php
-        // Commentaires
+
         if ( comments_open() || get_comments_number() ) :
             ?>
             <div class="container mx-auto px-4 max-w-3xl mt-16 pt-16 border-t border-gray-100">

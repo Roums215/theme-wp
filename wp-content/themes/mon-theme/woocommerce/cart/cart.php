@@ -17,7 +17,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 
         <div class="woocommerce">
             <?php
-            // Affichage des notices (succès, erreur...)
+
             wc_print_notices();
             ?>
 
@@ -74,10 +74,10 @@ do_action( 'woocommerce_before_cart' ); ?>
 
                                                     do_action( 'woocommerce_after_cart_item_name', $cart_item, $cart_item_key );
 
-                                                    // Meta data
+
                                                     echo wc_get_formatted_cart_item_data( $cart_item );
 
-                                                    // Backorder notification
+
                                                     if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) ) {
                                                         echo wp_kses_post( apply_filters( 'woocommerce_cart_item_backorder_notification', '<p class="text-yellow-500 text-sm mt-1">' . esc_html__( 'Available on backorder', 'woocommerce' ) . '</p>', $product_id ) );
                                                     }
@@ -125,7 +125,7 @@ do_action( 'woocommerce_before_cart' ); ?>
                                                 <!-- Supprimer -->
                                                 <td class="p-6 text-right">
                                                     <?php
-                                                    echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                                    echo apply_filters(
                                                         'woocommerce_cart_item_remove_link',
                                                         sprintf(
                                                             '<a href="%s" class="text-gray-500 hover:text-red-500 transition-colors p-2 hover:bg-red-500/10 rounded-full" aria-label="%s" data-product_id="%s" data-product_sku="%s"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></a>',

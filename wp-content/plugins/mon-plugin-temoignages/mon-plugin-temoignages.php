@@ -131,7 +131,7 @@ function mon_plugin_shortcode( $atts ) {
             $query->the_post();
             $auteur = get_post_meta( get_the_ID(), 'auteur_temoignage', true );
             
-            // Dark Mode Structure
+
             $html .= '<div class="bg-brand-surface border border-brand-border rounded-2xl p-8 hover:border-brand-primary transition-all duration-300 group flex flex-col h-full">';
             
             $html .= '<h3 class="text-xl font-bold text-white mb-4 group-hover:text-brand-primary transition-colors"><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>';

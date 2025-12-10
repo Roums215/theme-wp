@@ -19,10 +19,10 @@ get_header();
 
         <div class="woocommerce">
             <?php
-            // Affichage des notices (connexion, erreurs...)
+
             wc_print_notices();
 
-            // Si le checkout ne peut pas se faire (panier vide), on arrête
+
             if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_required() && ! is_user_logged_in() ) {
                 echo esc_html( apply_filters( 'woocommerce_checkout_must_be_logged_in_message', __( 'You must be logged in to checkout.', 'woocommerce' ) ) );
                 return;

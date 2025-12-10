@@ -29,7 +29,7 @@ get_header();
                         <?php do_action( 'woocommerce_login_form' ); ?>
                     </div>
 
-                    <!-- Register (if enabled) -->
+                    <!-- Register -->
                     <?php if ( 'yes' === get_option( 'woocommerce_enable_myaccount_registration' ) ) : ?>
                         <div class="w-full md:w-1/2 p-12 md:p-20 bg-brand-dark/30">
                             <h2 class="text-3xl font-bold text-white mb-8">Créer un compte</h2>

@@ -19,7 +19,7 @@ get_header();
     <header class="archive-header">
         <h1 class="archive-title">
             <?php 
-            // Affiche automatiquement "Catégorie : X" ou "Auteur : Y"
+
             the_archive_title(); 
             ?>
         </h1>

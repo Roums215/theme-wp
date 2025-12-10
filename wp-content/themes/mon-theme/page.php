@@ -9,18 +9,18 @@ get_header();
 ?>
 
 <?php
-    // Check if it's a WooCommerce page that needs full width (Cart, Checkout, Account)
+
     $is_wc_full_width = class_exists( 'WooCommerce' ) && ( is_cart() || is_checkout() || is_account_page() );
 
     if ( $is_wc_full_width ) :
-        // Full Width Layout for WooCommerce Pages
+
         while ( have_posts() ) :
             the_post();
             the_content();
         endwhile;
 
     else :
-        // Standard Page Layout
+
         ?>
         <div class="bg-brand-dark min-h-screen py-20">
             

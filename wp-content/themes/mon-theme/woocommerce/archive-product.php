@@ -70,15 +70,15 @@ get_header();
                 <?php
                 if ( woocommerce_product_loop() ) {
                     
-                    // Barre d'outils (Tri, résultats)
+
                     echo '<div class="bg-brand-surface/50 backdrop-blur-md border border-brand-border p-4 rounded-2xl mb-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-300">';
                     do_action( 'woocommerce_before_shop_loop' );
                     echo '</div>';
                     
-                    // Ouvre la grille
+
                     echo '<ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">';
                     
-                    // Boucle des produits
+
                     if ( have_posts() ) {
                         while ( have_posts() ) {
                             the_post();
@@ -89,7 +89,7 @@ get_header();
                     
                     echo '</ul>';
                     
-                    // Pagination
+
                     echo '<div class="mt-12 flex justify-center">';
                     do_action( 'woocommerce_after_shop_loop' );
                     echo '</div>';
